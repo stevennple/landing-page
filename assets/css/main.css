@@ -588,7 +588,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #df6666;
+		color: #668cdf;
 	}
 
 	sub {
@@ -662,7 +662,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: #df6666;
+		background-color: #668cdf;
 		border: 0;
 		border-radius: 3.5em;
 		color: #ffffff;
@@ -2061,7 +2061,7 @@ input, select, textarea {
 		}
 
 			.main.dark a {
-				color: #df6666;
+				color: #668cdf;
 			}
 
 			.main.dark .button.style2 {
