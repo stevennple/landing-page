@@ -91,7 +91,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #ffffff;
+		background: #212121;
 		height: 100%;
 		min-width: 320px;
 	}
@@ -893,6 +893,12 @@ input, select, textarea {
 	textarea {
 		min-height: 8em;
 	}
+
+	::placeholder {
+		color: #ffffff; /* Brighter color for the placeholder text */
+		opacity: 1; /* Fully opaque */
+	}
+
 
 	::-moz-focus-inner {
 		border: 0;
@@ -2055,7 +2061,7 @@ input, select, textarea {
 		}
 
 			.main.dark a {
-				color: inherit;
+				color: #df6666;
 			}
 
 			.main.dark .button.style2 {
@@ -2176,7 +2182,7 @@ input, select, textarea {
 		margin: 0;
 		line-height: 1em;
 		padding: 1.5em;
-		background: #39454b;
+		background: #181818;
 		color: rgba(185, 186, 187, 0.5);
 		overflow: hidden;
 	}
