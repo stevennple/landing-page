@@ -551,7 +551,7 @@ input, select, textarea {
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 900;
-		color: inherit;
+		color: white;
 		letter-spacing: -0.0325em;
 	}
 
@@ -588,7 +588,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out;
-		color: #98c593;
+		color: #df6666;
 	}
 
 	sub {
@@ -621,8 +621,8 @@ input, select, textarea {
 /* Box */
 
 	.box {
-		background: #ffffff;
-		color: #39454b;
+		background: #212121;
+		color: #ffffff;
 		padding: 2em;
 	}
 
@@ -662,7 +662,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: #98c593;
+		background-color: #df6666;
 		border: 0;
 		border-radius: 3.5em;
 		color: #ffffff;
@@ -1832,7 +1832,7 @@ input, select, textarea {
 		left: 0;
 		top: 0;
 		width: 100%;
-		background: rgba(255, 255, 255, 0.95);
+		background: rgba(21, 21, 21, 0.95);
 		height: 3em;
 		line-height: 3em;
 		box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1);
@@ -1871,7 +1871,7 @@ input, select, textarea {
 
 					#header nav ul li a {
 						display: block;
-						color: inherit;
+						color: white;
 						text-decoration: none;
 						height: 3em;
 						line-height: 3em;
@@ -2043,11 +2043,11 @@ input, select, textarea {
 			}
 
 			.main.style3.primary {
-				background: #ffffff;
+				background: #212121;
 			}
 
 			.main.style3.secondary {
-				background: #f5f6f7;
+				background: #212121;
 			}
 
 		.main.dark {
