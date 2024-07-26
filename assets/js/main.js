@@ -1,219 +1,117 @@
 /*
-	Big Picture by HTML5 UP
+	Strata by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	var	$window = $(window),
+	var $window = $(window),
 		$body = $('body'),
 		$header = $('#header'),
-		$all = $body.add($header);
+		$footer = $('#footer'),
+		$main = $('#main'),
+		settings = {
+
+			// Parallax background effect?
+				parallax: true,
+
+			// Parallax factor (lower = more intense, higher = less intense).
+				parallaxFactor: 20
+
+		};
 
 	// Breakpoints.
 		breakpoints({
-			xxlarge: [ '1681px',  '1920px' ],
-			xlarge:  [ '1281px',  '1680px' ],
-			large:   [ '1001px',  '1280px' ],
-			medium:  [ '737px',   '1000px' ],
+			xlarge:  [ '1281px',  '1800px' ],
+			large:   [ '981px',   '1280px' ],
+			medium:  [ '737px',   '980px'  ],
 			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ]
+			xsmall:  [ null,      '480px'  ],
 		});
 
 	// Play initial animations on page load.
 		$window.on('load', function() {
-			setTimeout(function() {
+			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
 		});
 
-	// Touch mode.
-		if (browser.mobile)
-			$body.addClass('is-touch');
-		else {
+	// Touch?
+		if (browser.mobile) {
 
-			breakpoints.on('<=small', function() {
+			// Turn on touch mode.
 				$body.addClass('is-touch');
-			});
 
-			breakpoints.on('>small', function() {
-				$body.removeClass('is-touch');
-			});
-
-		}
-
-	// Fix: IE flexbox fix.
-		if (browser.name == 'ie') {
-
-			var $main = $('.main.fullscreen'),
-				IEResizeTimeout;
-
-			$window
-				.on('resize.ie-flexbox-fix', function() {
-
-					clearTimeout(IEResizeTimeout);
-
-					IEResizeTimeout = setTimeout(function() {
-
-						var wh = $window.height();
-
-						$main.each(function() {
-
-							var $this = $(this);
-
-							$this.css('height', '');
-
-							if ($this.height() <= wh)
-								$this.css('height', (wh - 50) + 'px');
-
-						});
-
-					});
-
-				})
-				.triggerHandler('resize.ie-flexbox-fix');
+			// Height fix (mostly for iOS).
+				window.setTimeout(function() {
+					$window.scrollTop($window.scrollTop() + 1);
+				}, 0);
 
 		}
 
-	// Gallery.
-		$window.on('load', function() {
-
-			var $gallery = $('.gallery');
-
-			$gallery.poptrox({
-				baseZIndex: 10001,
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#1f2328',
-				overlayOpacity: 0.65,
-				usePopupDefaultStyling: false,
-				usePopupCaption: true,
-				popupLoaderText: '',
-				windowMargin: 50,
-				usePopupNav: true
-			});
-
-			// Hack: Adjust margins when 'small' activates.
-				breakpoints.on('>small', function() {
-					$gallery.each(function() {
-						$(this)[0]._poptrox.windowMargin = 50;
-					});
-				});
-
-				breakpoints.on('<=small', function() {
-					$gallery.each(function() {
-						$(this)[0]._poptrox.windowMargin = 5;
-					});
-				});
-
+	// Footer.
+		breakpoints.on('<=medium', function() {
+			$footer.insertAfter($main);
 		});
 
-	// Section transitions.
-		if (browser.canUse('transition')) {
+		breakpoints.on('>medium', function() {
+			$footer.appendTo($header);
+		});
 
-			var on = function() {
+	// Header.
 
-				// Galleries.
-					$('.gallery')
-						.scrollex({
-							top:		'30vh',
-							bottom:		'30vh',
-							delay:		50,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+		// Parallax background.
 
-				// Generic sections.
-					$('.main.style1')
-						.scrollex({
-							mode:		'middle',
-							delay:		100,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+			// Disable parallax on IE (smooth scrolling is jerky), and on mobile platforms (= better performance).
+				if (browser.name == 'ie'
+				||	browser.mobile)
+					settings.parallax = false;
 
-					$('.main.style2')
-						.scrollex({
-							mode:		'middle',
-							delay:		100,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+			if (settings.parallax) {
 
-				// Contact.
-					$('#contact')
-						.scrollex({
-							top:		'50%',
-							delay:		50,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+				breakpoints.on('<=medium', function() {
 
-			};
+					$window.off('scroll.strata_parallax');
+					$header.css('background-position', '');
 
-			var off = function() {
+				});
 
-				// Galleries.
-					$('.gallery')
-						.unscrollex();
+				breakpoints.on('>medium', function() {
 
-				// Generic sections.
-					$('.main.style1')
-						.unscrollex();
+					$header.css('background-position', 'left 0px');
 
-					$('.main.style2')
-						.unscrollex();
+					$window.on('scroll.strata_parallax', function() {
+						$header.css('background-position', 'left ' + (-1 * (parseInt($window.scrollTop()) / settings.parallaxFactor)) + 'px');
+					});
 
-				// Contact.
-					$('#contact')
-						.unscrollex();
+				});
 
-			};
+				$window.on('load', function() {
+					$window.triggerHandler('scroll');
+				});
 
-			breakpoints.on('<=small', off);
-			breakpoints.on('>small', on);
+			}
 
-		}
+	// Main Sections: Two.
 
-	// Events.
-		var resizeTimeout, resizeScrollTimeout;
+		// Lightbox gallery.
+			$window.on('load', function() {
 
-		$window
-			.on('resize', function() {
+				$('#two').poptrox({
+					caption: function($a) { return $a.next('h3').text(); },
+					overlayColor: '#2c2c2c',
+					overlayOpacity: 0.85,
+					popupCloserText: '',
+					popupLoaderText: '',
+					selector: '.work-item a.image',
+					usePopupCaption: true,
+					usePopupDefaultStyling: false,
+					usePopupEasyClose: false,
+					usePopupNav: true,
+					windowMargin: (breakpoints.active('<=small') ? 0 : 50)
+				});
 
-				// Disable animations/transitions.
-					$body.addClass('is-resizing');
-
-				clearTimeout(resizeTimeout);
-
-				resizeTimeout = setTimeout(function() {
-
-					// Update scrolly links.
-						$('a[href^="#"]').scrolly({
-							speed: 1500,
-							offset: $header.outerHeight() - 1
-						});
-
-					// Re-enable animations/transitions.
-						setTimeout(function() {
-							$body.removeClass('is-resizing');
-							$window.trigger('scroll');
-						}, 0);
-
-				}, 100);
-
-			})
-			.on('load', function() {
-				$window.trigger('resize');
 			});
 
 })(jQuery);
