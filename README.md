@@ -5,3 +5,4 @@ Week 1's project is personal website or landing page <br />
 7/23/2024 - Changed website color theme and replaced background images <br />
 7/25/2024 - Fixed "What I do" and "Who I am" color issue on potrait mode on mobile devices <br />
 7/26/2024 - Completely revamped website to a more professional design. Added favicon and Google Analytics <br />
+7/31/2024 - Updated projects section <br />
