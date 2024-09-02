@@ -273,6 +273,42 @@ input, select, textarea {
 			width: 100%;
 		}
 
+		/* Custom Styles */
+
+		.graduation-date {
+			margin-bottom: 15px;
+		}	
+		
+		/* Ensure the logo scales down on mobile devices */
+		@media screen and (max-width: 768px) {
+			.education-logo {
+				width: 100px;
+				height: auto;
+				margin-bottom: 15px;
+			}
+		}
+
+		/* For tablets */
+		@media screen and (min-width: 769px) and (max-width: 1024px) {
+			.education-logo {
+				width: 120px; /* Adjust this if necessary */
+				height: auto;
+				float: left;
+				margin-right: 30px;
+				margin-top: 10px; /* Adjust this to vertically align with the text */
+			}
+		}	
+
+		/* For larger screens (1025px and above) */
+		@media screen and (min-width: 1025px) {
+			.education-logo {
+				width: 195px; /* Set this according to your preferred size */
+				height: auto;
+				float: left; /* Ensure it stays aligned with the text */
+				margin-right: 40px;
+			}
+		}
+
 		@media screen and (max-width: 980px) {
 
 			.container {
@@ -1817,7 +1853,7 @@ input, select, textarea {
 		-webkit-appearance: none;
 		-ms-appearance: none;
 		appearance: none;
-		background: #f7f7f7;
+		background: #f1f1f1;
 		border-radius: 0.35em;
 		border: solid 2px transparent;
 		color: inherit;
