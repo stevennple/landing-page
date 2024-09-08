@@ -167,7 +167,7 @@ input, select, textarea {
 	}
 
 	h5 {
-		font-size: 0.9em;
+		font-size: 0.8em;
 		line-height: 1.5em;
 	}
 
@@ -272,12 +272,6 @@ input, select, textarea {
 		.container.max {
 			width: 100%;
 		}
-
-		/* Custom Styles */
-
-		.graduation-date {
-			margin-bottom: 15px;
-		}	
 		
 		/* Ensure the logo scales down on mobile devices */
 		@media screen and (max-width: 768px) {
@@ -289,20 +283,20 @@ input, select, textarea {
 		}
 
 		/* For tablets */
-		@media screen and (min-width: 769px) and (max-width: 1024px) {
+		@media screen and (min-width: 769px) and (max-width: 1799px) {
 			.education-logo {
-				width: 120px; /* Adjust this if necessary */
+				width: 160px; /* Adjust this if necessary */
 				height: auto;
 				float: left;
 				margin-right: 30px;
-				margin-top: 10px; /* Adjust this to vertically align with the text */
+				margin-top: 15px; /* Adjust this to vertically align with the text */
 			}
 		}	
 
-		/* For larger screens (1025px and above) */
-		@media screen and (min-width: 1025px) {
+		/* For larger screens (1800px and above) */
+		@media screen and (min-width: 1800px) {
 			.education-logo {
-				width: 195px; /* Set this according to your preferred size */
+				width: 225px; /* Set this according to your preferred size */
 				height: auto;
 				float: left; /* Ensure it stays aligned with the text */
 				margin-right: 40px;
