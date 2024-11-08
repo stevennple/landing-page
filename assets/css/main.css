@@ -1,4 +1,3 @@
-@import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
 
 /*
@@ -2808,184 +2807,186 @@ input, select, textarea {
 		overflow: hidden;
 		padding-bottom: 3em;
 	}
+	
+	.poptrox-popup .loader {
+		text-decoration: none;
+		-moz-animation: spin 1s linear infinite;
+		-webkit-animation: spin 1s linear infinite;
+		-ms-animation: spin 1s linear infinite;
+		animation: spin 1s linear infinite;
+		font-size: 1.5em;
+		height: 1em;
+		left: 50%;
+		line-height: 1em;
+		margin: -0.5em 0 0 -0.5em;
+		position: absolute;
+		top: 50%;
+		width: 1em;
+	}
+	
+	.poptrox-popup .loader:before {
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+		display: inline-block;
+		font-style: normal;
+		font-variant: normal;
+		text-rendering: auto;
+		line-height: 1;
+		text-transform: none !important;
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+	}
 
-		.poptrox-popup .loader {
-			text-decoration: none;
-			-moz-animation: spin 1s linear infinite;
-			-webkit-animation: spin 1s linear infinite;
-			-ms-animation: spin 1s linear infinite;
-			animation: spin 1s linear infinite;
-			font-size: 1.5em;
-			height: 1em;
-			left: 50%;
-			line-height: 1em;
-			margin: -0.5em 0 0 -0.5em;
-			position: absolute;
-			top: 50%;
-			width: 1em;
-		}
+	.poptrox-popup .loader:before {
+		content: '\f1ce';
+	}
+	
+	.poptrox-popup .caption {
+		background: #fff;
+		bottom: 0;
+		cursor: default;
+		font-size: 0.9em;
+		height: 3em;
+		left: 0;
+		line-height: 2.8em;
+		position: absolute;
+		text-align: center;
+		width: 100%;
+		z-index: 1;
+	}
+	
+/* Navigation Arrows */
 
-			.poptrox-popup .loader:before {
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				display: inline-block;
-				font-style: normal;
-				font-variant: normal;
-				text-rendering: auto;
-				line-height: 1;
-				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 900;
-			}
+/* Base styles for arrows */
+.poptrox-popup .nav-next,
+.poptrox-popup .nav-previous {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5em;
+  height: 2.5em;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent grey background */
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	z-index: 1002; /* Ensure it's above other elements */
+}
 
-			.poptrox-popup .loader:before {
-				content: '\f1ce';
-			}
+.poptrox-popup .nav-next:hover,
+.poptrox-popup .nav-previous:hover {
+  background: rgba(0, 0, 0, 0.7); /* Darker on hover */
+  opacity: 1;
+}
 
-		.poptrox-popup .caption {
-			background: #fff;
-			bottom: 0;
-			cursor: default;
-			font-size: 0.9em;
-			height: 3em;
-			left: 0;
-			line-height: 2.8em;
-			position: absolute;
-			text-align: center;
-			width: 100%;
-			z-index: 1;
-		}
+/* Right arrow */
+.poptrox-popup .nav-next {
+  right: 1em;
+}
 
-		.poptrox-popup .nav-next,
-		.poptrox-popup .nav-previous {
-			text-decoration: none;
-			-moz-transition: opacity 0.2s ease-in-out;
-			-webkit-transition: opacity 0.2s ease-in-out;
-			-ms-transition: opacity 0.2s ease-in-out;
-			transition: opacity 0.2s ease-in-out;
-			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-			background: rgba(0, 0, 0, 0.01);
-			cursor: pointer;
-			height: 100%;
-			opacity: 0;
-			position: absolute;
-			top: 0;
-			width: 50%;
-		}
+.poptrox-popup .nav-next:before {
+  content: '\f105'; /* Font Awesome right arrow */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 1.5em;
+  color: #fff; /* Arrow color */
+	
+  /* Center the icon precisely */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-			.poptrox-popup .nav-next:before,
-			.poptrox-popup .nav-previous:before {
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				display: inline-block;
-				font-style: normal;
-				font-variant: normal;
-				text-rendering: auto;
-				line-height: 1;
-				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 900;
-			}
+  /* Remove any potential interference */
+  margin: 0;
+  padding: 0;
+  display: block;
+}
 
-			.poptrox-popup .nav-next:before,
-			.poptrox-popup .nav-previous:before {
-				color: #fff;
-				font-size: 2.5em;
-				height: 1em;
-				line-height: 1em;
-				margin-top: -0.75em;
-				position: absolute;
-				text-align: center;
-				top: 50%;
-				width: 1.5em;
-			}
+/* Left arrow */
+.poptrox-popup .nav-previous {
+  left: 1em;
+}
 
-		.poptrox-popup .nav-next {
-			right: 0;
-		}
+.poptrox-popup .nav-previous:before {
+  content: '\f104'; /* Font Awesome left arrow */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 1.5em;
+  color: #fff; /* Arrow color */
 
-			.poptrox-popup .nav-next:before {
-				content: '\f105';
-				right: 0;
-			}
+  /* Center the icon precisely */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Remove any potential interference */
+  margin: 0;
+  padding: 0;
+  display: block;
+}
 
-		.poptrox-popup .nav-previous {
-			left: 0;
-		}
+/* Closer Button */
 
-			.poptrox-popup .nav-previous:before {
-				content: '\f104';
-				left: 0;
-			}
+/* Base styles for closer */
+.poptrox-popup .closer {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  width: 2.5em;
+  height: 2.5em;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent grey background */
+  border-radius: 50%; /* Make it a circle */
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease-in-out, background 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1002; /* Ensure it's above other elements */
+}
 
-		.poptrox-popup .closer {
-			text-decoration: none;
-			-moz-transition: opacity 0.2s ease-in-out;
-			-webkit-transition: opacity 0.2s ease-in-out;
-			-ms-transition: opacity 0.2s ease-in-out;
-			transition: opacity 0.2s ease-in-out;
-			-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-			color: #fff;
-			height: 4em;
-			line-height: 4em;
-			opacity: 0;
-			position: absolute;
-			right: 0;
-			text-align: center;
-			top: 0;
-			width: 4em;
-			z-index: 2;
-		}
+.poptrox-popup .closer:hover {
+  background: rgba(0, 0, 0, 0.7); /* Darker on hover */
+  opacity: 1;
+}
 
-			.poptrox-popup .closer:before {
-				-moz-osx-font-smoothing: grayscale;
-				-webkit-font-smoothing: antialiased;
-				display: inline-block;
-				font-style: normal;
-				font-variant: normal;
-				text-rendering: auto;
-				line-height: 1;
-				text-transform: none !important;
-				font-family: 'Font Awesome 5 Free';
-				font-weight: 900;
-			}
+/* Closer icon */
+.poptrox-popup .closer:before {
+  content: '\f00d'; /* Font Awesome times (close) icon */
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: 1.2em;
+  color: #fff; /* Close icon color */
+  
+  /* Center the icon precisely */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  /* Remove any potential interference */
+  margin: 0;
+  padding: 0;
+  display: block;
+}
 
-			.poptrox-popup .closer:before {
-				-moz-box-sizing: content-box;
-				-webkit-box-sizing: content-box;
-				-ms-box-sizing: content-box;
-				box-sizing: content-box;
-				border-radius: 100%;
-				border: solid 3px rgba(255, 255, 255, 0.5);
-				content: '\f00d';
-				display: block;
-				font-size: 1em;
-				height: 1.75em;
-				left: 50%;
-				line-height: 1.75em;
-				margin: -0.875em 0 0 -0.875em;
-				position: absolute;
-				top: 50%;
-				width: 1.75em;
-			}
+/* Hover Effects for All Buttons */
+.poptrox-popup:hover .nav-next,
+.poptrox-popup:hover .nav-previous,
+.poptrox-popup:hover .closer {
+  opacity: 0.5;
+}
 
-		.poptrox-popup:hover .nav-next,
-		.poptrox-popup:hover .nav-previous {
-			opacity: 0.5;
-		}
-
-			.poptrox-popup:hover .nav-next:hover,
-			.poptrox-popup:hover .nav-previous:hover {
-				opacity: 1.0;
-			}
-
-		.poptrox-popup:hover .closer {
-			opacity: 0.5;
-		}
-
-			.poptrox-popup:hover .closer:hover {
-				opacity: 1.0;
-			}
+.poptrox-popup:hover .nav-next:hover,
+.poptrox-popup:hover .nav-previous:hover,
+.poptrox-popup:hover .closer:hover {
+  opacity: 1.0;
+}
 
 /* Touch */
 
@@ -3210,19 +3211,14 @@ input, select, textarea {
 					margin: 2.25em 0 0 0;
 					padding: 2.25em 0 0 0;
 				}
+				
+				/* Poptrox */
 
-		/* Poptrox */
+		.poptrox-popup {
+			border-radius: 0;
+		}
 
-			.poptrox-popup {
-				border-radius: 0;
-			}
-
-				.poptrox-popup .nav-next:before,
-				.poptrox-popup .nav-previous:before {
-					margin-top: -1em;
-				}
-
-	}
+}
 
 /* XSmall */
 
@@ -3249,3 +3245,107 @@ input, select, textarea {
 			}
 
 	}
+
+/* Navigation bar styling */
+#nav-toggle {
+	position: fixed;
+	right: 1em;
+	top: 1em;
+	background: #ffffff;
+	color: #787878;
+	border-radius: 0.35em;
+	border: solid 3px #dadada;	padding: 10px 15px;
+	font-size: 1.5em;
+	cursor: pointer;
+	z-index: 1001;
+	transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+#nav-toggle:hover {
+	border: solid 3px #ff8e8e;
+	color: #ff8e8e;
+	text-decoration: none;
+}
+
+/* Hidden initially */
+.hidden {
+	transform: translateY(-100%); /* Hidden off the top of the screen */
+	transition: transform 0.4s ease-in-out;
+}
+
+/* Navigation bar styling */
+#nav {
+	position: fixed;
+	top: 5em; /* Position the nav right below the button */
+	right: 1em;
+	width: auto;
+	background: #fff;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	padding: 1em 0;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	z-index: 1000;
+	transform: translateY(-150%); /* Initially hidden off-screen */
+	transition: transform 0.4s ease-in-out;
+}
+
+#nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+}
+
+#nav ul li {
+	margin: 0.5em 1.5em;
+}
+
+/* Normal state for nav links */
+#nav ul li a {
+	background-color: transparent;
+	border-radius: 0.35em;
+	border: solid 3px #efefef;
+	color: #787878;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 400;
+	line-height: 2.75em;
+	min-width: 8em;
+	padding: 0 1.5em;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+#nav ul li a:hover {
+	border: solid 3px #ff8e8e;
+	color: #ff8e8e;
+	text-decoration: none;
+}
+
+/* Show navigation when it's active */
+#nav.show {
+	transform: translateY(0); /* Slide down to reveal */
+}
+
+/* Navigation backdrop styling */
+#nav-backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 900;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+#nav-backdrop.show {
+	opacity: 1;
+	visibility: visible;
+}
