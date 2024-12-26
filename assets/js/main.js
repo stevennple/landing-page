@@ -32,7 +32,7 @@
 			$body.removeClass('is-preload');
 			if (!browser.mobile) {
 				// Scroll to the intro section on page load for non-mobile devices
-				document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
+				document.getElementById('header').scrollIntoView({ behavior: 'smooth' });
 			}
 		}, 100);
 	});
