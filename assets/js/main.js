@@ -28,9 +28,13 @@
 
 	// Play initial animations on page load.
 	$window.on('load', function() {
-			window.setTimeout(function() {
-					$body.removeClass('is-preload');
-			}, 100);
+		window.setTimeout(function() {
+			$body.removeClass('is-preload');
+			if (!browser.mobile) {
+				// Scroll to the intro section on page load for non-mobile devices
+				document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
+			}
+		}, 100);
 	});
 
 	// Touch?
