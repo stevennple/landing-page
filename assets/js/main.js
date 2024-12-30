@@ -30,8 +30,8 @@ breakpoints({
 $window.on('load', function() {
     window.setTimeout(function() {
         $body.removeClass('is-preload');
-        if (!browser.mobile) {
-            // Scroll to the intro section on page load for non-mobile devices
+        if (!browser.mobile && window.innerWidth > 980) {
+            // Scroll to the intro section on page load for non-mobile devices with viewport width greater than 980 pixels
             document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
         }
     }, 100);
